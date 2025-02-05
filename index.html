@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+    <title>Que tipo de F(x) eres</title>
+</head>
+
+<body>
+    <!--CAJA GRANDE QUE DEJARA MARGENES AL COSTADO-->
+    <div class = "caja-principal">
+        <!--Texto titulo de la pagina -->
+        <div class = "encabezado"> 
+            <h1 class = "cormorant-garamond-bold titulo-de-la-pagina">¿Qué tipo de f(x) serías? </h1>
+        </div>
+
+        <!--Cuerpo de la pagina-->
+        <div class = "cuerpo">
+            <p class = "cormorant-garamond-light-italic texto-secundario" >   Descubre cual función matemática describe tu personalidad tan solo respondiendo un par de preguntas! Respondelas con sinceridad para obtener una respuesta que te identifique, selecciona si estas de acuerdo o no con el enunciado presentado, avanza y retrocede entre las preguntas con las flechas, hay 15 preguntas en total. Si no te sentis identificado con el resultado, perdón, soy informático, no psicólogo :b, de todas formas, gracias por probar el test ♥ :) </p>
+
+            <!--Caja del centro donde saldrán las preguntas -->
+            <div class = "container">
+
+                <div class = "preguntas encerrado">
+                    <b id = "nombre-funcion" class = "transicion-opacidad oculto"></b>  <!-- Inicialmente oculto, nombre de la función que te tocó -->
+                    <hr id = "linea" class="oculto">
+                    <img src="" alt="Error" id = "img-funcion" class = "oculto">   <!-- Inicialmente oculto, esta es la grafica de la funcion que tocó-->
+                    <p id = "texto-resultado" ; class="cormorant-garamond-regular texto-secundario transicion-opacidad oculto" ></p>
+                    <p id = "parrafo-preguntas" ; class="cormorant-garamond-regular texto-secundario transicion-opacidad ocultar-luego" ></p>
+                </div>
+
+                <div class = "opciones ocultar-luego">
+
+                    <button class="boton x1-5" id = "boton-no" onclick="get_decision(false)">
+                        <img src="images/No.png">
+                    </button>
+
+                    <button class="boton x1-5" id = "boton-si" onclick="get_decision(true)">
+                        <img src="images/Si.png">
+                    </button>
+
+                </div>
+
+                <div class = "botones-inferiores ocultar-luego">
+                    <button class="boton invertida" onclick="retroceder()">
+                        <img src="images/Flecha.png">
+                    </button>
+                    <button class="boton" onclick="avanzar()">
+                        <img src="images/Flecha.png">
+                    </button>
+                </div>
+            </div>
+            <!--Talon de la pagina-->
+            <div class="encerrado">
+                <p class = "cormorant-garamond-regular texto-secundario" > 
+                    Hecho por:
+                     <a href="https://www.instagram.com/mattt__t/"> h2okt </a> 
+                      :)
+                </p>
+            </div>            
+        </div>
+
+    </div>
+
+</body>
+
+</html>
