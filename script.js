@@ -24,7 +24,7 @@ const is_true = [
     () => {absx++,ex++,lnx++;},//2
     () => {absx+=2;lnx++;},//3
     () => {senx++;tgx++,caos+=2;},//4
-    () => {absx++;ex+=2;tgx+=2;caos++;},//5
+    () => {absx++;ex++;tgx+=2;caos++;},//5
     () => {senx+=2;tgx++;},//6
     () => {lnx++;ex++;absx++;},//7
     () => {senx++;tgx++;caos+=2;},//8
@@ -33,14 +33,14 @@ const is_true = [
     () => {senx++;tgx++;},
     () => {ex+=2;absx++;},
     () => {ex++;absx++;},
-    () => {lnx++;ex++;senx++;},
+    () => {lnx++;senx++;},
     () => {tgx++;caos+=2;}
 ];
 //Funciones anonimas, las cuales se ejecutaran si el resultado en el array respuestas es false
 const is_false = [
     () => {absx++;ex++;},//1
     () => {tgx++;caos++;},//2
-    () => {senx++;ex++;tgx++},//3
+    () => {senx++;tgx++},//3
     () => {absx++;ex++;lnx++;},//4
     () => {senx++;lnx++;},//5
     () => {ex++;lnx++;},//6
