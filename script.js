@@ -68,6 +68,8 @@ const nombre_funcion = document.getElementById("nombre-funcion");
 const img_funcion = document.getElementById("img-funcion");
 const linea = document.getElementById("linea");
 const txt_resultado = document.getElementById("texto-resultado");
+const caja_nombre = document.getElementById("caja-nombre");
+const txtbox = document.getElementById("txtbox");
 
 //Para guardar las respuestas del usuario
 let n = preguntas.length; // Número de elementos
@@ -100,7 +102,7 @@ let img_links = {
     "Caos"   : "images/caos.png"
 }
 
-
+let nombre = "";
 //--------------FUNCIONES-----------------------------------------------------------------
 // Ejecutar la función al cargar la página
 document.addEventListener("DOMContentLoaded", function() {
@@ -127,18 +129,9 @@ function avanzar(){
         }else{
             evaluar();
             limpiar_container();
-            let func_name = get_mayor(); //Obtener el nombre de la funcion
-            nombre_funcion.textContent = "Tu función es: " + func_name; //Escribir la funcion que te toco
-            img_funcion.src = img_links[func_name];//Colocar la ruta a la imagen de la funcion que toco
-            txt_resultado.textContent = resultados[func_name];//Colocar la descripcion de la funcion
-            //Hacer visibles el nombre e imagen de la funcion
-            nombre_funcion.classList.remove("oculto");
-            img_funcion.classList.remove("oculto");
-            linea.classList.remove("oculto");
-            txt_resultado.classList.remove("oculto");
+            mostrar_caja_nombre();
         }
-    }
-    else{
+    }else{
         puntero++;
         mostrarPregunta();
         refrescar_seleccion();
@@ -199,4 +192,41 @@ function get_mayor(){
         }
     }
     return keys[indice_mayor];
+}
+function mostrar_caja_nombre(){
+    caja_nombre.classList.remove("oculto");
+}
+function mostrar_resultados(){
+    let func_name = get_mayor(); //Obtener el nombre de la funcion
+    nombre_funcion.textContent = nombre + "! Tu función es: " + func_name; //Escribir la funcion que te toco
+    img_funcion.src = img_links[func_name];//Colocar la ruta a la imagen de la funcion que toco
+    txt_resultado.textContent = resultados[func_name];//Colocar la descripcion de la funcion
+    //Hacer visibles el nombre e imagen de la funcion
+    nombre_funcion.classList.remove("oculto");
+    img_funcion.classList.remove("oculto");
+    linea.classList.remove("oculto");
+    txt_resultado.classList.remove("oculto");
+}
+
+function get_nickname(){
+    let respuesta = txtbox.value;
+    vacio = respuesta.length == 0;
+    if(!vacio){
+        nombre = respuesta;
+        caja_nombre.classList.add("oculto");
+        fetch("https://api.sheetbest.com/sheets/7ca62cd1-5d40-4005-aa0c-5eeed39a0250",{
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({
+                "Nickname": nombre,
+                "Personalidad": get_mayor()
+            })
+        })
+        mostrar_resultados();
+    }else{
+        alert("Debes ingresar algo en la caja de texto");
+    }
 }

@@ -31,6 +31,17 @@
                     <hr id = "linea" class="oculto">
                     <img src="" alt="Error" id = "img-funcion" class = "oculto">   <!-- Inicialmente oculto, esta es la grafica de la funcion que tocó-->
                     <p id = "texto-resultado" ; class="cormorant-garamond-regular texto-secundario transicion-opacidad oculto" ></p>
+
+                    <!--Esta sección aparecera cuando el usuario termine de responder las preguntas, le solicitará un nombre para luego mostrar su resultado-->
+                    <div id = "caja-nombre" class = "oculto">
+                        <p class = "cormorant-garamond-regular texto-secundario transicion-opacidad">
+                            Antes de ver el resultado, ingresa tu nombre o un nickname que te identifique, esto es solo con el fin de almacenar respuestas :).
+                        </p>
+                        <input type="text" id="txtbox" name="texto" placeholder="Ingresa tu nombre aquí, ejemplo: panchito696">
+                        <button class = "boton submit-button" onclick="get_nickname()">Continuar</button>
+                    </div>
+                    
+                    <!--Este parrafo mostrará las preguntas al usuario-->
                     <p id = "parrafo-preguntas" ; class="cormorant-garamond-regular texto-secundario transicion-opacidad ocultar-luego" ></p>
                 </div>
 
